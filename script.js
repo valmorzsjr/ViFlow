@@ -3,7 +3,7 @@ const containerVideos = document.querySelector(".videos__container");
 
 async function buscarEMostrarVideos(){
     try{
-        const busca = await fetch("https://698b67786c6f9ebe57bc8fa0.mockapi.io/api/v1/videos");
+        const busca = await fetch("https://my-json-server.typicode.com/valmorzsjr/ViFlow/videos");
         const videos = await busca.json();
 
             videos.forEach((video) => {
