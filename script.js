@@ -37,24 +37,19 @@ barraDePesquisa.addEventListener("input", filtrarPesquisa);
 
 function filtrarPesquisa() {
     const videos = document.querySelectorAll(".videos__item");
+    const valorFiltro = barraDePesquisa.value.toLowerCase(); 
 
-    if(barraDePesquisa.value != "") {
-        for(let video of videos){
-            let titulo = video.querySelector(".titulo-video").textContent.toLocaleLowerCase();
-            let valorFiltro = barraDePesquisa.value.toLocaleLowerCase();
+    for (let video of videos) {
+        let titulo = video.querySelector(".titulo-video").textContent.toLowerCase();
 
-            if(!titulo.includes(valorFiltro)){
-                video.style.display = "none";
-            }else{
-                video.style.display = "block";
-            }
-
+    
+        if (valorFiltro === "" || titulo.includes(valorFiltro)) {
+            video.style.display = "block";
+        } else {
+            video.style.display = "none";
         }
-    } else {
-        video.style.display = "block";
     }
 }
-
 const botaoCategoria = document.querySelectorAll(".superior__item");
 
 botaoCategoria.forEach((botao) => {
